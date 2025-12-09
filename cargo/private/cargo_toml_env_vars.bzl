@@ -12,6 +12,9 @@ def _cargo_toml_env_vars_impl(ctx):
         inputs.append(ctx.file.workspace)
         args.add(ctx.file.workspace)
 
+    for input in inputs:
+        print(input)
+
     ctx.actions.run(
         outputs = [out],
         executable = ctx.file._cargo_toml_variable_extractor,
